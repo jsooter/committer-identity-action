@@ -1,0 +1,10 @@
+name: 'Committer Identity'
+description: 'Check the committer identity'
+inputs:
+  valid-emails-url:  # id of input
+    description: 'Email address list'
+    required: true
+    default: 'https://raw.githubusercontent.com/jsooter/committer-identity-action/main/valid-emails.json'
+runs:
+  using: 'node12'
+  main: 'index.js'
