@@ -1,0 +1,25 @@
+{
+  "name": "committer-identity-action",
+  "version": "1.0.0",
+  "description": "A GitHub action to check committer identity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsooter/committer-identity-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsooter/committer-identity-action/issues"
+  },
+  "homepage": "https://github.com/jsooter/committer-identity-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "request": "^2.88.2"
+  }
+}
