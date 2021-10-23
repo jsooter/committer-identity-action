@@ -15,7 +15,7 @@ try {
 
         if (committer_email != 'josh-sooter@pluralsight.com') {
 
-            core.setFailed(`Committ email ${committer_email} is is not compliant`);
+            core.setFailed(`Committer email ${committer_email} is is not compliant`);
         }
 
         console.log(`Committer email: ${committer_email}`);
