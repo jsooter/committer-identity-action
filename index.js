@@ -9,7 +9,7 @@ try {
     request(validEmailsUrl, { json: true }, (err, res, body) => {
         if (err) { return console.log(err); }
         
-        console.log(res);
+        console.log(res.toJSON());
 
         committer_email = github.context.payload.head_commit.committer.email;
 
