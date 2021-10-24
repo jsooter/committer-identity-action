@@ -7,9 +7,15 @@ try {
     const validEmailsUrl = core.getInput('valid-emails-url');
 
     https.get(validEmailsUrl, (resp) => {
+        let data = '';
 
+        // A chunk of data has been received.
+        resp.on('data', (chunk) => {
+            data += chunk;
+        });
+        
         resp.on('end', () => {
-            
+
             console.log(JSON.parse(data));
 
             committer_email = github.context.payload.head_commit.committer.email;
