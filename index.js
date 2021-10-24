@@ -18,7 +18,7 @@ try {
 
             const emailList = JSON.parse(data);
 
-            console.log(emailList);
+            console.log(data);
 
             committer_email = github.context.payload.head_commit.committer.email;
 
