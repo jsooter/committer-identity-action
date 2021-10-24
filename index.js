@@ -5,6 +5,7 @@ const github = require('@actions/github');
 try {
 
     const validEmailsUrl = core.getInput('valid-emails-url');
+    console.log(validEmailsUrl);
 
     https.get(validEmailsUrl, (resp) => {
         let data = '';
