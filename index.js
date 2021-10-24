@@ -19,11 +19,11 @@ try {
 
             const emailList = JSON.parse(data);
 
-            console.log(data);
+            console.log(emailList);
 
             committer_email = github.context.payload.head_commit.committer.email;
 
-            if (committer_email != 'josh-sooter@pluralsight.com') {
+            if (emailList.includes(committer_email) === false) {
 
                 core.setFailed(`Committer email ${committer_email} is is not compliant`);
             }
