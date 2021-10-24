@@ -16,7 +16,7 @@ try {
 
         resp.on('end', () => {
 
-            const emailList = JSON.parse(Buffer.concat(data).toString());
+            const emailList = JSON.parse(data);
 
             console.log(emailList);
 
