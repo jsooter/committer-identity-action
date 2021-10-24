@@ -1,4 +1,4 @@
-const request = require('request');
+const https = require('https');
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -6,22 +6,29 @@ try {
 
     const validEmailsUrl = core.getInput('valid-emails-url');
 
-    request(validEmailsUrl, { json: true }, (err, res, body) => {
-        if (err) { return console.log(err); }
+    https.get(validEmailsUrl, (resp) => {
+
+        resp.on('end', () => {
+            
+            console.log(JSON.parse(data));
+
+            committer_email = github.context.payload.head_commit.committer.email;
+
+            if (committer_email != 'josh-sooter@pluralsight.com') {
+
+                core.setFailed(`Committer email ${committer_email} is is not compliant`);
+            }
+
+            console.log(`Committer email: ${committer_email}`);
+
+        });
         
-        console.log(res.toJSON());
+    }).on("error", (err) => {
 
-        committer_email = github.context.payload.head_commit.committer.email;
-
-        if (committer_email != 'josh-sooter@pluralsight.com') {
-
-            core.setFailed(`Committer email ${committer_email} is is not compliant`);
-        }
-
-        console.log(`Committer email: ${committer_email}`);
+        console.log("Error: " + err.message);
     });
 
 } catch (error) {
-    
+
   core.setFailed(error.message);
 }
