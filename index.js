@@ -13,10 +13,12 @@ try {
         resp.on('data', (chunk) => {
             data += chunk;
         });
-        
+
         resp.on('end', () => {
 
-            console.log(JSON.parse(data));
+            const emailList = JSON.parse(Buffer.concat(data).toString());
+
+            console.log(emailList);
 
             committer_email = github.context.payload.head_commit.committer.email;
 
