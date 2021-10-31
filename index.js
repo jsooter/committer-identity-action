@@ -25,7 +25,7 @@ try {
 
             if (emailList.includes(committer_email) === false) {
 
-                core.setFailed(`Committer email ${committer_email} is is not compliant`);
+                core.setFailed(`Committer email ${committer_email} is not compliant`);
             }
 
             console.log(`Committer email: ${committer_email}`);
